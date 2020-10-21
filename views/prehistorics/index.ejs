@@ -1,0 +1,18 @@
+<h1>List of Prehistorics</h1>
+
+<form method='GET' action='/prehistorics'>
+    <label for="nameFilter">Filter by Name:</label>
+    <input type="text" id='nameFilter' NAME='nameFilter'>
+    <input type='submit'>
+</form>
+
+<ul>
+    <% prehistorics.forEach((pre,i)=>{ %>
+        <li>
+            <%= pre.name %> is a <%= pre.type %>
+            <form method='POST' action="/prehistorics/<%= i %>/?_method=DELETE">
+                <input type='submit' value='delete'>
+            </form>
+        </li>
+    <% }) %>
+</ul>
